@@ -45,4 +45,18 @@ module.exports = eva => {
             (fn 30)
         )
     `, 160)
+
+    // recursive
+    test(eva, `
+        (begin
+            (def factorial (x)
+                (if (= x 1) 
+                    1
+                    (* x (factorial (- x 1)))
+                )
+            )
+
+            (factorial 6)
+        )
+    `, 720)
 };
