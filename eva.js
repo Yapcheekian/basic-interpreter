@@ -57,6 +57,15 @@ class Eva {
         }
 
         // ---------------------------------
+        // switch expression:
+        // syntactic sugar for nested if-expressions
+        if (exp[0] === 'switch') {
+            const ifExp = this._transformer.transformSwtichToIf(exp);
+
+            return this.eval(ifExp, env);
+        }
+
+        // ---------------------------------
         // while expression:
         if (exp[0] === 'while') {
             const [_tag, condition, body] = exp;
